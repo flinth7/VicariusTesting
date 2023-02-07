@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="VicariusSuite">
+    <test name="VicariusTest">
+        <classes>
+            <class name="pages.signup.SignUpPage"></class>
+            <class name="pages.signin.SignInPage"></class>
+            <class name="pages.product.ProductPage"></class>
+        </classes>
+    </test>
+</suite>
