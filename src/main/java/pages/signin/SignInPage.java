@@ -1,5 +1,6 @@
 package pages.signin;
 
+import org.openqa.selenium.By;
 import utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,21 +8,11 @@ import base.BasePage;
 
 public class SignInPage extends BasePage {
 
-//    public WebDriver driver;
-//
-//    @BeforeMethod
-//    public void setup() {
-////        WebDriverManager.chromedriver().setup();
-////        driver = new ChromeDriver();
-//        WebDriverManager.firefoxdriver().setup();
-//        driver = new FirefoxDriver();
-//    }
-
     @Test(priority = 1)
-    public void validatePage() throws InterruptedException {
+    public void validatePage() {
         driver.get("https://www.vicarius.io/sign/in");
         Assert.assertEquals(driver.getTitle(), "Login to TOPIA Cloud 📨 - Vicarius");
-        Utils.validateLeftSide(driver, "Vuln Prioritisation");
+        Utils.validateLeftSide(driver);
         driver.close();
     }
 
@@ -35,5 +26,14 @@ public class SignInPage extends BasePage {
     public void FaqClickTest() throws InterruptedException {
         driver.get("https://www.vicarius.io/sign/in");
         Utils.FaqClick(driver);
+    }
+
+    @Test(priority = 4)
+    public void FreeTrialButtonTest() throws InterruptedException {
+        driver.get("https://www.vicarius.io/sign/in");
+        driver.manage().window().maximize();
+        driver.findElement(By.cssSelector("div.right > div.option > a > span")).click();
+        Thread.sleep(10000);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.vicarius.io/sign/up");
     }
 }

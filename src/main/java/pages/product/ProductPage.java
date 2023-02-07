@@ -2,17 +2,12 @@ package pages.product;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.Utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ProductPage extends BasePage {
 
@@ -34,7 +29,6 @@ public class ProductPage extends BasePage {
         for (WebElement we : linkButtons) {
             Assert.assertEquals(we.getText(), buttons[i++]);
         }
-//        Assert.assertEquals(linkButtons.size(), 7);
         Assert.assertEquals(driver.findElement(By.cssSelector(".animated-button")).getText(), "Start Free Trial");
         Assert.assertEquals(driver.findElement(By.xpath("//*/div[3]/div[2]/button")).getText(), "Watch Demo");
         driver.close();

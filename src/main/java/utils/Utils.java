@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
-        public static void validateLeftSide(WebDriver driver, String expected) {
+        public static void validateLeftSide(WebDriver driver) {
 
                 driver.manage().window().maximize();
-                String[] titles = {"Vuln Discovery", expected, "Vuln Remediation", "Automation"};
+                String[] titles = {"Vuln Discovery", "Vuln Prioritization", "Vuln Remediation", "Automation"};
                 String[] texts = {
                         "You can’t fix what you can’t find.",
                         "Focus on risks that have real potential for exploitation",
@@ -41,7 +41,6 @@ public class Utils {
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
                 Thread.sleep(1000);
-//                driver.findElemenbt(By.className("faq")).click();
                 driver.findElement(By.cssSelector("div.sign-inner > div > a")).click();
                 Thread.sleep(5000);
                 // get window handlers as list
@@ -53,6 +52,4 @@ public class Utils {
                 driver.switchTo().window(browserTabs.get(0));
                 driver.close();
         }
-
-
 }

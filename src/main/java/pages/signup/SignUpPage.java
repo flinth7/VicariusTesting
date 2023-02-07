@@ -11,20 +11,11 @@ import java.util.List;
 
 public class SignUpPage extends BasePage {
 
-//    public WebDriver driver;
-//
-//    @BeforeMethod
-//    public void setup() {
-////        WebDriverManager.chromedriver().setup();
-////        driver = new ChromeDriver();
-//        WebDriverManager.firefoxdriver().setup();
-//        driver = new FirefoxDriver();
-//    }
     @Test(priority = 1)
     public void validatePage() throws InterruptedException {
         driver.get("https://www.vicarius.io/sign/up");
         Assert.assertEquals(driver.getTitle(), "Start your 14-days Free Trial Now 🆓 - Vicarius");
-        Utils.validateLeftSide(driver, "Vuln Prioritization");
+        Utils.validateLeftSide(driver);
         Assert.assertEquals(driver.findElement(By.id("input27")).getAttribute("placeholder"), "First Name");
         Assert.assertEquals(driver.findElement(By.id("input29")).getAttribute("placeholder"), "Last Name");
         Assert.assertEquals(driver.findElement(By.id("input31")).getAttribute("placeholder"), "Work e-mail");
