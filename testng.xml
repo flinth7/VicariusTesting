@@ -2,9 +2,9 @@
 <suite name="VicariusSuite">
     <test name="VicariusTest">
         <classes>
-<!--            <class name="pages.signup.SignUpPage"></class>-->
+            <class name="pages.signup.SignUpPage"></class>
             <class name="pages.signin.SignInPage"></class>
-<!--            <class name="pages.product.ProductPage"></class>-->
+            <class name="pages.product.ProductPage"></class>
         </classes>
     </test>
 </suite>

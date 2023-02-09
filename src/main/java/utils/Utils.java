@@ -27,7 +27,6 @@ public class Utils {
         }
 
         public static void LogoClick(WebDriver driver) throws InterruptedException {
-//                driver.get(url);
                 driver.manage().window().maximize();
                 driver.findElement(By.cssSelector("div.sign > div.header > div.left")).click();
                 Thread.sleep(10000);
@@ -36,7 +35,6 @@ public class Utils {
         }
 
         public static void FaqClick(WebDriver driver) throws InterruptedException {
-//                driver.get(url);
                 driver.manage().window().maximize();
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 js.executeScript("window.scrollBy(0,document.body.scrollHeight)");

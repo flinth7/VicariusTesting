@@ -15,32 +15,39 @@ public class ProductPage extends BasePage {
     public void validatePage() throws InterruptedException {
         driver.get("https://www.vicarius.io/product");
         int i = 0;
+        // check page title
         Assert.assertEquals(driver.getTitle(), "Product - Vicarius");
+        // check primary title
         Assert.assertEquals(driver.findElement(By.cssSelector("div > div > h1")).getText(), "TOPIA Overview");
+        // check secondary titles
         String[] secondaryTitle = driver.findElement(By.cssSelector("h3.heading")).getText().split("\n");
         Assert.assertEquals(secondaryTitle[0], "TOPIA protects your installed operating");
         Assert.assertEquals(secondaryTitle[1], "systems and third-party");
         Assert.assertEquals(secondaryTitle[2], "software from vulnerabilities.");
+        // check paragraphs texts
         String[] thirdTitle = driver.findElement(By.xpath("//*/div[3]/div[1]/p")).getText().split("\n");
         Assert.assertEquals(thirdTitle[0], "Consolidate your software vulnerability assessment with one single TOPIA agent.");
         Assert.assertEquals(thirdTitle[1], "Let TOPIA do the work so you can focus on and remediate the threats that matter most.");
+        // check header link buttons texts
         List<WebElement> linkButtons = driver.findElements(By.className("link-button"));
         String[] buttons = {"+ Product", "+ Solution", "Pricing", "+ Community", "+ Company", "Contact", "Login"};
         for (WebElement we : linkButtons) {
             Assert.assertEquals(we.getText(), buttons[i++]);
         }
+        // check buttons text
         Assert.assertEquals(driver.findElement(By.cssSelector(".animated-button")).getText(), "Start Free Trial");
         Assert.assertEquals(driver.findElement(By.xpath("//*/div[3]/div[2]/button")).getText(), "Watch Demo");
         driver.close();
     }
 
-
     @Test(priority = 2)
     public void LogoClickTest() throws InterruptedException {
         driver.get("https://www.vicarius.io/product");
         driver.manage().window().maximize();
+        // click on vicarius logo button
         driver.findElement(By.cssSelector("div > a > svg")).click();
         Thread.sleep(10000);
+        // check that user redirect to vicarius home page
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.vicarius.io/");
         driver.close();
     }
@@ -49,8 +56,10 @@ public class ProductPage extends BasePage {
     public void LoginClickTest() throws InterruptedException {
         driver.get("https://www.vicarius.io/product");
         driver.manage().window().maximize();
+        // click on login button
         driver.findElement(By.cssSelector("a.hidden-lg-down")).click();
         Thread.sleep(10000);
+        // check that user redirect to the right url
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.vicarius.io/sign/in");
         driver.close();
     }
